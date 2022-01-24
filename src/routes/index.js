@@ -26,6 +26,7 @@ router.get('/stats', function(req, res, next) {
   });
   prom.instantQuery('avg(chihaya_storage_infohashes_count)')
     .then((result) => {
+      console.log(result);
       const resp = result.result;
       tracker_stats.hashes = Math.round(resp.value.value);
 
