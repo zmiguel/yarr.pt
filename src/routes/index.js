@@ -26,7 +26,6 @@ router.get('/stats', function(req, res, next) {
   });
   prom.instantQuery('avg(chihaya_storage_infohashes_count)')
     .then((result) => {
-      console.log(result.result[0].value);
       const resp = result.result[0];
       tracker_stats.hashes = Math.round(resp.value.value);
 
@@ -40,6 +39,7 @@ router.get('/stats', function(req, res, next) {
               const resp = result.result[0];
               tracker_stats.leech = Math.round(resp.value.value);
               tracker_stats.peer = tracker_stats.seed + tracker_stats.leech;
+
               res.render('stats', { title: 'Yarr | Stats', stats: true, data: tracker_stats});
             })
             .catch(console.error);
@@ -49,9 +49,6 @@ router.get('/stats', function(req, res, next) {
 
     })
     .catch(console.error);
-
-  
-  res.render('stats', { title: 'Yarr | Stats', stats: true, data: tracker_stats});
 });
 
 module.exports = router;
