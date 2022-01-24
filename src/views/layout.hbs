@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <meta content="width=device-width" name="viewport">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <h1><a href="/">Yarr</a></h1>
+    <center><h5><a href="/" {{#if home}}class="current-menu"{{else}}class="menu"{{/if}}>Home</a> | <a href="/stats" {{#if stats}}class="current-menu"{{else}}class="menu"{{/if}}>Stats</a> | <a href="/info" {{#if info}}class="current-menu"{{else}}class="menu"{{/if}}>Info</a> | <a href="/tos" {{#if tos}}class="current-menu"{{else}}class="menu"{{/if}}>ToS</a></h4></center>
+    <h2>Yarr Public Open Bittorrent Tracker</h2>
+    <p><strong><code>udp://udp.yarr.pt:1337/announce</code></strong></p>
+    <p><strong><code>https://tracker.yarr.pt:443/announce</code></strong></p>
+    {{{body}}}
+  </body>
+</html>
