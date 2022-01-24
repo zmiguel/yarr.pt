@@ -6,12 +6,9 @@ WORKDIR /yarr.pt
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY package*.json ./
+COPY src .
 
 RUN npm install
-
-# Bundle app source
-COPY src .
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
